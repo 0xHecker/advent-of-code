@@ -14,7 +14,7 @@ function solve(k) {
 	return (
 		input
 			.map((_, i) => input.slice(i, i + k))
-			.findIndex((a) => new Set(a).size == a.length) + k
+			.findIndex((a) => new Set(a).size == k) + k
 	);
 }
 
@@ -22,12 +22,12 @@ console.log(solve(4));
 console.log(solve(14));
 
 // long method
-function solve2(packetSize) {
-	for (let i = 0; i < input2.length - packetSize; i++) {
-		let tempArr = input2.substring(i, i + packetSize).slice('');
+function solve2(k) {
+	for (let i = 0; i < input2.length - k; i++) {
+		let tempArr = input2.substring(i, i + k).slice('');
 		let uniqueSet = new Set(tempArr);
-		if (uniqueSet.size == packetSize) {
-			console.log(i + packetSize);
+		if (uniqueSet.size == k) {
+			console.log(i + k);
 			break;
 		} else {
 			uniqueSet.clear();
